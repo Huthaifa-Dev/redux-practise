@@ -1,13 +1,15 @@
 import { Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { counterActions } from '../store/index';
+import { counterActions, authActions } from '../store/index';
 import classes from './Counter.module.css';
 
 const Counter = () => {
 
   const dispatch = useDispatch();
-  const counter = useSelector(state => state.counter);
-  const showCounter = useSelector(state => state.showCounter);
+  const counter = useSelector(state => state.counter.counter);
+  const showCounter = useSelector(state => state.counter.showCounter);
+
+
   const toggleIncrementHandler = () => {
     // dispatch({ type: 'increment' });
     dispatch(counterActions.increment());
